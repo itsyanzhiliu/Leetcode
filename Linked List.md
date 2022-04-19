@@ -13,8 +13,12 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // Define a pointer that points to the head pointer and returns the result
         ListNode dummyHead = new ListNode(0);
+        
+        // Define a portable pointer that points to the sum of two values
         ListNode cur = dummyHead;
+        
         int carry = 0;
         
         while (l1 != null || l2 != null) {
@@ -27,7 +31,10 @@ class Solution {
                 sum += l2.val;
                 l2 = l2.next;
             }
+           
             carry = sum / 10;
+            
+            // Create and assign the sum value to a new pointer because cur.next = sum is invalid
             cur.next = new ListNode(sum % 10);
             cur = cur.next;
         }
