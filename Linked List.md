@@ -108,7 +108,49 @@ class Solution {
 
 
 ## Leetcode 23
+Method 1: Follow Leetcode 21
 ```java
-
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        if (lists == null || lists.length == 0) {
+            return null;
+        }
+        
+        for (int i=1; i < lists.length; i++) {
+            lists[0] = mergeTwoLists(lists[0], lists[i]);
+        }
+        return lists[0];
+    }
+    
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode cur = dummyHead;
+        
+        while (list1 != null && list2 != null) {
+            
+            if (list1.val < list2.val) {
+                cur.next = list1;
+                list1 = list1.next;
+            }
+            else {
+                cur.next = list2;
+                list2 = list2.next;
+            }
+            cur = cur.next;
+        }
+        
+        if (list1 != null) {
+            cur.next = list1;
+            list1 = list1.next;
+        }
+        
+        if (list2 != null) {
+            cur.next = list2;
+            list2 = list2.next;
+        }
+        
+        return dummyHead.next;        
+    }
+}
 ```
 
