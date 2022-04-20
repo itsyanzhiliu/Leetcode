@@ -45,3 +45,70 @@ class Solution {
     }
 }
 ```
+
+## Leetcode 19
+```java
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        
+        ListNode fast = dummyHead;
+        ListNode slow = dummyHead;
+        
+        for (int i=0; i < n+1; i++) {
+            fast = fast.next;    
+        }
+        
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        slow.next = slow.next.next;        
+        return dummyHead.next;
+    }
+}
+```
+
+## Leetcode 21
+```java
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode cur = dummyHead;
+        
+        while (list1 != null && list2 != null) {
+            
+            if (list1.val < list2.val) {
+                cur.next = list1;
+                list1 = list1.next;
+            }
+            else {
+                cur.next = list2;
+                list2 = list2.next;
+            }
+            cur = cur.next;
+        }
+        
+        if (list1 != null) {
+            cur.next = list1;
+            list1 = list1.next;
+        }
+        
+        if (list2 != null) {
+            cur.next = list2;
+            list2 = list2.next;
+        }
+        
+        return dummyHead.next;        
+    }
+}
+```
+
+
+## Leetcode 23
+```java
+
+```
+
