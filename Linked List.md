@@ -215,3 +215,34 @@ class Solution {
     }
 }
 ```
+
+## Leetcode 25
+```java
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (head == null) return head;
+        
+        ListNode end = head;
+        for (int i=0; i < k-1; i++) {
+            end = end.next;
+            if (end == null) return head;
+        }
+        
+        ListNode newNode = end.next;
+        ListNode newList = reverseList(head, end);
+        head.next = reverseKGroup(newNode, k);
+        return newList;
+    }
+    
+    public ListNode reverseList(ListNode start, ListNode end) {
+        ListNode tmp = null;
+        while (tmp != end) {
+            ListNode next = start.next;
+            start.next = tmp;
+            tmp = start;
+            start = next;
+        }
+        return tmp;
+    }   
+}
+```
