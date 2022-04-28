@@ -1,4 +1,4 @@
 # Leetcode
 Learning Data Structure & Algorithm based on Leetcode problems
 
-All codes are written in Java.
+All codes are written in Python and Java.
