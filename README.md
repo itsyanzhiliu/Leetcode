@@ -7,4 +7,4 @@ All codes are written in Python and Java.
 
 | Leetcode Link  | Solution | Comment |
 | ------------- | ------------- | ------  |
-| [Leetcode 1](https://leetcode.com/problems/two-sum/)  |  [Two Sum](https://github.com/itsGavinLiu/Leetcode/blob/main/1-10.md#leetcode-1) | |
+
